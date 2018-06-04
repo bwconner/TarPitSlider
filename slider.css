@@ -1,0 +1,25 @@
+.slider-wrapper {
+	width: 100%;
+}
+
+.slider-control {
+	position: absolute;
+	text-align: center;
+	width: 100px;
+	height: 50px;
+	border: 4px solid #000;
+	background: #fff;
+	border-radius: 10px;
+}
+
+.slider-prev {
+	border-left: 0px;
+}
+
+.slider-next {
+	border-right: 0px;
+}
+
+.slider-image {
+	width: 100%;
+}

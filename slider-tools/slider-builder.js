@@ -12,6 +12,8 @@ function buildOutputField() {
 	});
 
 	$(".slider-output").html(output);
+	$(".slider-output").removeClass("hidden");
+	$(".slider-output__title").removeClass("hidden");
 }
 
 function buildInputFields(numOfInput) {
@@ -25,6 +27,7 @@ function buildInputFields(numOfInput) {
 	}
 
 	$(".input-fields").html(inputFields);
+	$(".generate-output").removeClass("hidden");
 }
 
 function initSliderBuilder() {
