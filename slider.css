@@ -1,23 +1,32 @@
 .slider-wrapper {
 	width: 100%;
+	text-align: center;
 }
 
-.slider-control {
+.slider-controls-wrapper {
 	position: absolute;
-	text-align: center;
+	top:75%;
+	left: calc(50% - 130px);
+	width: 260px;
+}
+.slider-control {
+	display: inline-block;
+
 	width: 100px;
 	height: 50px;
 	border: 4px solid #000;
 	background: #fff;
 	border-radius: 10px;
+	cursor: pointer;
+	
 }
 
 .slider-prev {
-	border-left: 0px;
+	
 }
 
 .slider-next {
-	border-right: 0px;
+	margin-left: 40px;
 }
 
 .slider-image {
