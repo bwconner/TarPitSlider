@@ -1,0 +1,98 @@
+<html>
+
+<style>
+	.slider-prev,
+	.slider-next {
+		cursor: pointer;
+		background: #000;
+		height: 100%;
+		display: inline-block;
+
+	}
+
+	.slide-link {
+		display: inline-block;
+	}
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	var sliderObject = [];
+
+	sliderObject[0] = {
+		img: "https://picsum.photos/200/300/?random"
+	};
+
+	sliderObject[1] = {
+		img: "https://picsum.photos/300/300/?random"
+	};
+
+	sliderObject[2] = {
+		img: "https://picsum.photos/400/300/?random"
+	};
+
+	sliderObject[3] = {
+		img: "https://picsum.photos/100/300/?random"
+	};
+
+	function initializeSlider() {
+
+		var $slider = $(".tpc-slider");
+		var totalSlides = parseInt($slider.attr("data-total-slides"));
+
+		$slider.on("click", ".slider-prev", function() {
+			prevSlide($slider, totalSlides);
+		});
+
+		$slider.on("click", ".slider-next", function() {
+			 nextSlide($slider, totalSlides);
+		});
+
+		updateSlider($slider, 0);
+	}
+
+
+	function nextSlide ($slider, totalSlides) {
+		//should probably be passed slider object
+		var newSlide = (parseInt($slider.attr("data-current-slide")) + 1) % totalSlides;
+		updateSlider($slider, newSlide);
+	}
+
+	function prevSlide ($slider, totalSlides) {
+		//should probably be passed slider object
+		var newSlide = (parseInt($slider.attr("data-current-slide")) - 1) % totalSlides;
+
+		if (newSlide < 0) {
+			newSlide = totalSlides - 1;
+		}
+
+		updateSlider($slider, newSlide);
+	}
+
+	function updateSlider($slider, newSlide) {
+		$slider.attr("data-current-slide", newSlide);
+
+		var newImage = sliderObject[newSlide].img;
+
+		$slider.find(".slide-img").attr("src", newImage)
+	}
+
+	window.onload = function() {
+		initializeSlider();
+	}
+
+</script>
+
+<body>
+
+	<div class="tpc-slider" data-current-slide="0" data-total-slides="4">
+		<div class="slider-prev">Prev</div>
+		<a class="slide-link">
+			<img class="slide-img" src=""></a>
+		</a>
+		<div class="slider-next">Next</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+var sliderObject = {
+	[
+		{title: "title"},
+		{title: "title2"},
+		{title: "title3"},
+	]
+}
